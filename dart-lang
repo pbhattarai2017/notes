@@ -1,8 +1,157 @@
 Dart language:
+https://www.dartlang.org/guides/language/language-tour
 
-
-First simple program:
+1. First simple program:
 ----------------------
 main() {
 	print('helloworld');
 }
+
+2. //This is a comment.
+
+3. String interpolation:
+	$var_name or ${expression}
+
+	Example:
+	int num = 1000;
+	print('the number is $num');
+
+4. 'var' keyword can also be used.
+
+5. Everything is an object.
+
+6. It supports generic types, like List<int>
+
+7. Identifier with _ in-front is private to that class.
+
+8. Dart tools report 2 kinds of problems: warnings and errors. Errors can be compile-time or run-time. A warning doesnot prevent the program from being executed.
+
+Variables:
+----------
+var name = 'Prakash';
+
+1. Variables stores references.
+
+2. Uninitialized variables have an initial value of null.
+
+3. Final and const:
+
+	A final variable can only be set once.
+	A const variable is a compile-time constant.
+
+4. Built-in types:
+	numbers
+	strings
+	booleans
+	lists (also known as arrays)
+	sets
+	maps
+	runes (for expressing Unicode characters in a string)
+	symbols
+
+5. Converting between int and string.
+	String n = '123';
+	int i = int.parse(n); 		//string -> int
+	int b = i + 5;
+	
+	double pi = double.parse('3.14159'); //string -> double
+
+	int a = 12345;	
+	String s = a.toString();	//int -> string
+
+	double pi = 3.14159;
+	String s = pi.toStringAsFixed(3); //double -> string
+	print(s); 			//3.141
+
+Strings:
+--------
+1. A dart string is a UTF-16 code units.
+
+2. You can put the value of an expression inside a string by using ${expression}.
+	
+	var fname = 'prakash';
+	var intro = 'my name is ${fname}.';
+
+3. To get the string corresponding to an object, Dart calls the object's toString() method.
+
+4.	Strings can be concatenated using '+' operator.
+
+5. Triple quotes can be used for multi-line string.
+	'''hello
+		world
+			bye
+				world'''
+
+6. A raw string can be created by prefixing it with r:
+	var s = r'Hello\nWorld'; 
+	
+	Escape sequences inside raw string are not processed.
+
+Booleans:
+---------
+To represent boolean values, Dart has a type named 'bool'.
+
+bool isprime = false;
+
+
+Lists:
+------
+var l = [1, 2, 3]; 			//List<int>
+
+print(l.length); // 3
+
+There are other many methods for list.
+
+Sets:
+-----
+var s = {'a','b','c'};			//Set<String>
+
+s.add('e');
+s.addAll(set2);
+
+Maps:
+-----
+var table = { 'first': 'apple', 'second': 'ball'}
+	//Map<String,String>
+
+Runes:
+------
+runes are UTF-32 code points of a string.
+
+	\uXXXX			4-digit hexadecimal value.
+	\u{hex}			any-digit hexadecimal value.
+
+Functions:
+----------
+Dart is a true object-oriented language. Functions are also objects that can be assigned to variables or passed as arguments to other functions. You can also call an instance of a Dart clas as if it were a function.
+
+syntax:
+-------
+return-type function-name(parameters) {
+	//body
+	return val;
+}
+
+For functions that contain just one expresssion, you can use a shorthand syntax called arrow notation in javascript.
+
+syntax:
+-------
+return-type func-name(parameters) => return-expr;
+
+Optional Parameters:
+--------------------
+When calling function, you can specify named parameters, just like kwargs in python.
+
+func(param1: val, param2: val);
+
+You can annotate a named parameter with @required to indicate that it is a required parameter.
+
+Optional positional parameters:
+-------------------------------
+Wrapping a set of function parameters in [] marks them as optional positional parameters.
+
+Default parameter values:
+-------------------------
+Function parameter can use = to define default values for both named and positional parameters. 
+
+
