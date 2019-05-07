@@ -154,4 +154,12 @@ Default parameter values:
 -------------------------
 Function parameter can use = to define default values for both named and positional parameters. 
 
+Use toInt() function to convert double to int.
+For example:
+int a = 5;
+int b = 10;
+int c = ((a + b) / 2).toInt();
 
+OR, integer division in dart can be done using ~/ operator combo.
+
+int c = (a + b) ~/ 2;
