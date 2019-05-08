@@ -1,5 +1,6 @@
 Dart language:
 https://www.dartlang.org/guides/language/language-tour
+https://r12a.github.io/app-conversion/
 
 1. First simple program:
 ----------------------
@@ -138,6 +139,8 @@ syntax:
 -------
 return-type func-name(parameters) => return-expr;
 
+A function can have two types of parameters: required and optional. The required parameters are listed first, followed by any optional parameters.
+
 Optional Parameters:
 --------------------
 When calling function, you can specify named parameters, just like kwargs in python.
@@ -154,6 +157,10 @@ Default parameter values:
 -------------------------
 Function parameter can use = to define default values for both named and positional parameters. 
 
+Named parameters:
+-----------------
+Named parameters are specified in { param1, param2 } format.
+
 Use toInt() function to convert double to int.
 For example:
 int a = 5;
@@ -162,4 +169,4 @@ int c = ((a + b) / 2).toInt();
 
 OR, integer division in dart can be done using ~/ operator combo.
 
-int c = (a + b) ~/ 2;
+
