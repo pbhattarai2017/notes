@@ -1,0 +1,53 @@
+Flutter SDK for cross-platform mobile app development
+-----------------------------------------------------
+1. Download and setup 'flutter SDK' from flutter.io
+2. Download and setup 'Visual Studio Code' and install 'Dart' & 'Flutter' package.
+3. Start developing flutter app.
+
+
+Create your first mobile app from flutter:
+------------------------------------------
+1. Go to your project directory
+2. Create a flutter project by executing following command:
+	$ flutter create first_app
+3. Browse and open first_app directory from VSCode.
+4. Erase all text from 'lib/main.dart' and write the following code
+	_______________________________________
+	import 'package:flutter/material.dart';
+	
+	void main() {
+		runApp(FirstApp());
+	}
+
+	class FirstApp extends StatelessWidget {
+		@override
+		Widget build(BuildContext context) {
+			return MaterialApp(
+				title: 'My First Application',
+				home: Scaffold(
+					appBar: AppBar(title: 'Home Screen'),
+					body: Text('Hello World')	
+				)			
+			);
+		}
+	}
+	________________________________________
+
+Congrats, you have created your first application.
+To install it in your phone, install:
+	* first_app/build/app/outputs/apk/debug/app-debug.apk
+This is a debug version of your app. We will later see how to release an app.
+
+If you want to build release version from the latest codebase:
+$ flutter clean
+$ flutter build apk
+
+This will generate the latest .apk file for you application. Now share it with your friends.
+
+
+
+
+	
+
+
+
