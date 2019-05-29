@@ -44,6 +44,145 @@ $ flutter build apk
 
 This will generate the latest .apk file for you application. Now share it with your friends.
 
+Some Basic Widgets in Flutter:
+------------------------------
+1. Center()	//this widget is used to center the child Widget.
+2. Text()	//this widget is a text/label widget
+3. Column() 	//this widget is used for packing multiple child Widgets in a column format
+4. Row()	//same as Column() widget but packs multiple child wigets in row format
+5. Color()	//this widget is useful as color parameter.
+6. Container()	//it is just like <div> in html and can be used for different purposes, it is a box.
+7. TextStyle()	//this widget is used inside Text() widget call, for defining text/font style of the text.
+8. RaisedButton() 	//a simple button widget that can trigger an event.
+------------------------------
+
+Let us create a simple App that displays two boxes of different colors, up and down the screen.
+title of home page: Beautiful Box
+body: two boxes with colors C1 and C2.
+
+C1 = purple (#912BFF)
+C2 = lime (#B3B200)
+
+Step 1: Make a new flutter project:
+	$ flutter create boxes
+Step 2:	Launch VSCode and Emulator to work on the project
+___________________________________
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(Boxes());
+}
+
+class Boxes extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Boxes',
+      home: Scaffold(
+        appBar: AppBar(title: Text('Beautiful Box')),
+        body: Column(
+          children: <Widget>[
+            Container(
+              height: 100.0,
+              width: 100.0,
+              color: Color(0xFF912BFF), //purple color
+            ),
+            Container(
+              height: 100.0,
+              width: 100.0,
+              color: Color(0xFFB3B200), //lime color
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+____________________________________
+
+Now if you run your flutter project, you can see two boxes of equal size
+on the top left corner of the mobile screen and one is below another anchored to the leftmost
+margin of the mobile screen. This is the default positions for children of Column() widget.
+
+Here, we used 
+*) Container() widget to make box.
+*) The format is 0xAARRGGBB for color.
+	A - alpha
+	R - red
+	G - green
+	B - blue
+*) A container has 'height' and 'width' parameters which are of type double.
+*) <Widget> [] sytax is a list literal. It is a list of Widget objects. In this case, we have to widgets Container() and Container()
+
+What we did upto this point is just using Stateless() Widget, whose states(UI) doesn't change at all. It is constant throughout the lifetime of the App execution. It is not that interesting if our app doesnot react to things.
+
+To make Widgets react and change upon something(events), we need to use Stateful() Widgets. Stateful Widgets are a bit tricker to apply in our previous project. We need to make a stateful widget, and its state object should be created.
+
+OK. Now let's make another Application just like we previously did. But the boxes change their color randomly each time we tap on it.
+
+Step 1:	Create a flutter app
+Step 2: Launch VSCode and Emulator for the project.
+
+
+Home screen title: Reactive Box
+
+______________________________
+import 'dart:math';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(ReactiveBox());
+}
+
+class ReactiveBox extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _ReactiveBoxState();
+  }
+}
+
+class _ReactiveBoxState extends State<ReactiveBox> {
+  int _red = 255;
+  int _green = 0;
+  int _blue = 0;
+  Random rand = Random();
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Reactive Box',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Reactive Box'),
+        ),
+        body: Center(
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                _red = rand.nextInt(255);
+                _green = rand.nextInt(255);
+                _blue = rand.nextInt(255);
+              });
+            },
+            child: Container(
+              width: 100.0,
+              height: 100.0,
+              color: Color.fromARGB(255, _red, _green, _blue),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+________________________________________
+
+
+
+
+
+
+
 
 
 
